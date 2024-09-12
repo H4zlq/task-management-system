@@ -21,12 +21,24 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/register">Register</a>
-          </li>
+          <?php if (session()->has('user')): ?>
+            <li class="nav-item">
+              <a class="nav-link <?= $route === 'dashboard' ? 'active' : '' ?>" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <?= $route === 'profile' ? 'active' : '' ?>" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          <?php else: ?>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+          <?php endif; ?>
         </ul>
       </div>
     </div>

@@ -2,7 +2,7 @@
     <div class="container">
       <h1>Welcome to Task Management System</h1>
       <p class="lead">Manage your tasks effectively and efficiently</p>
-      <button class="btn btn-primary btn-lg">Add New Task</button>
+      <a href="/task/add" class="btn btn-primary">Add New Task</a>
     </div>
   </div>
 
@@ -20,16 +20,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="border">
-            <td class="border"></td>
-            <td class="border"></td>
-            <td class="border"></td>
-            <td class="border"></td>
-            <td class="border">
-              <button class="btn btn-warning">Update</button>
-              <button class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
+          <?php foreach ($tasks as $task): ?>
+            <tr class="border align-middle">
+              <td class="border"><?= $task->title ?></td>
+              <td class="border"><?= $task->description ?></td>
+              <td class="border"><?= $task->due_date ?></td>
+              <td class="border">
+                <span class="badge bg-<?= $task->status_color ?>"><?= strtoupper($task->status) ?></span>
+              </td>
+              <td class="border">
+                <a href="/task/edit/<?= $task->id ?>" class="btn btn-primary">Edit</a>
+                <a href="/task/delete/<?= $task->id ?>" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>

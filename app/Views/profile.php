@@ -11,24 +11,18 @@
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Full name</label>
           <input type="text" class="form-control" id="exampleFormControlInput1"
-            placeholder="Please enter your full name" value="<?= $name ?>">
+            placeholder="Please enter your full name" value="<?= $name ?>" readonly>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlInput2" class="form-label">Username</label>
           <input type="text" class="form-control" id="exampleFormControlInput2"
-            placeholder="Please enter your username" value="<?= $username ?>">
+            placeholder="Please enter your username" value="<?= $username ?>" readonly>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlInput3" class="form-label">Email</label>
           <input type="email" class="form-control" id="exampleFormControlInput3"
-            placeholder="Please enter your email address" value="<?= $email ?>">
+            placeholder="Please enter your email address" value="<?= $email ?>" readonly>
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="exampleFormControlInput4"
-            placeholder="Please enter your password" value="<?= $password ?>">
-        </div>
-        <button class="btn btn-primary">Register</button>
       </form>
     </div>
   </section>
