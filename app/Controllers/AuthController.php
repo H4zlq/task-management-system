@@ -32,9 +32,9 @@ class AuthController extends BaseController
     public function profile()
     {
         $user = session()->get('user');
-        $name = $user['name'];
-        $username = $user['username'];
-        $email = $user['email'];
+        $name = $user->name;
+        $username = $user->username;
+        $email = $user->email;
 
         $data = [
             'name' => $name,
@@ -66,7 +66,7 @@ class AuthController extends BaseController
             return redirect()->to('/login')->with('error', 'User does not exist');
         }
 
-        $passwordCheck = password_verify($password, $user['password']);
+        $passwordCheck = password_verify($password, $user->password);
 
         if (!$passwordCheck) {
             return redirect()->to('/login')->with('error', 'Invalid password');
