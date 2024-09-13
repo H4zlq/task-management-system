@@ -26,12 +26,12 @@ $routes->get('/profile', [AuthController::class, 'profile'], ['filter' => Auth::
  * @param RouteCollection $routes
  */
 $routes->group('task', function ($routes) {
-  $routes->get('add', [TaskController::class, 'add']);
-  $routes->get('edit/(:num)', [TaskController::class, 'edit/$1']);
-  $routes->post('add', [TaskController::class, 'handle_add_task']);
-  $routes->post('edit/(:num)', [TaskController::class, 'handle_edit_task/$1']);
-  $routes->get('delete/(:num)', [TaskController::class, 'handle_delete_task/$1']);
-}, ['filter' => Auth::class]);
+  $routes->get('add', [TaskController::class, 'add'],  ['filter' => Auth::class]);
+  $routes->get('edit/(:num)', [TaskController::class, 'edit/$1'], ['filter' => Auth::class]);
+  $routes->post('add', [TaskController::class, 'handle_add_task'], ['filter' => Auth::class]);
+  $routes->post('edit/(:num)', [TaskController::class, 'handle_edit_task/$1'], ['filter' => Auth::class]);
+  $routes->get('delete/(:num)', [TaskController::class, 'handle_delete_task/$1'], ['filter' => Auth::class]);
+});
 
 /**
  * Form submission routes
@@ -41,7 +41,4 @@ $routes->group('task', function ($routes) {
 $routes->group('auth', function ($routes) {
   $routes->post('login', [AuthController::class, 'handle_login']);
   $routes->post('register', [AuthController::class, 'handle_register']);
-}, ['filter' => [
-  Auth::class,
-  CSRF::class
-]]);
+});
