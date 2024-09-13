@@ -103,7 +103,7 @@ class AuthController extends BaseController
             return redirect()->to('/register')->with('error', 'Usename already exists');
         }
 
-        $userModel->insert($data);
+        $userModel->save($data);
 
         return redirect()->to('/login')->with('success', 'User registered successfully');
     }
