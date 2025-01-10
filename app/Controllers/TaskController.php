@@ -58,7 +58,7 @@ class TaskController extends BaseController
         $taskModel = new TaskModel();
 
         $data = [
-            'user_id' => session()->get('user')['username'],
+            'user_id' => session()->get('user')->username,
             'title' => $this->request->getPost('title'),
             'description' => $this->request->getPost('description'),
             'due_date' => $this->request->getPost('due_date'),
